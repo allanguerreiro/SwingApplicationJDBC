@@ -1,0 +1,85 @@
+UPDATE InformacoesPessoais SET  NOME = 'teste', ENDERECO = 'teste', BAIRRO = 'teste', CIDADE = 'Nova Terra', EMAIL= 'teste@teste.com.br', ESTADO = 'AC', SEXO = 'Masculino' WHERE ID = 2
+
+UPDATE Descricao SET DESCRICAO = 'teste'WHERE ID = 2
+
+UPDATE ObjetivoProfissional SET ESCOLARIDADE = 'Fundamental', AREAATUACAO = 'Autônomo', PRETENSAOSALARIAL = '500,00', CARGODESEJAVEL = 'Assistente' WHERE ID = 2
+
+
+DELETE tbl1, tbl2, tbl3 FROM InformacoesPessoais AS tbl1 INNER JOIN Descricao AS tbl2 ON tbl1.id = tbl2.id AND tbl1.nome = 'teste'INNER JOIN ObjetivoProfissional AS tbl3 ON  tbl2.id = tbl3.id
+
+
+java -cp C:/hsqldb.jar org.hsqldb.Server -database.0 C:\banco\estudodecaso -dbname.0 estudodecaso
+
+
+select * from informacoespessoais
+
+select * from descricao
+
+select * from objetivoprofissional
+
+DELETE FROM INFORMACOESPESSOAIS
+where informacoespessoais.id = 7
+
+DELETE inf, des, obj
+FROM informacoespessoais inf, descricao des, objetivoprofissional obj
+where inf.nome = 'teste' and inf.id = des.id 
+and des.id = obj.id
+
+delete inf, des, obj 
+from INFORMACOESPESSOAIS inf, DESCRICAO des, OBJETIVOPROFISSIONAL obj
+where inf.nome = 'Allan'
+
+DELETE tbl1, tbl2, tbl3 
+FROM InformacoesPessoais AS tbl1 
+INNER JOIN Descricao AS tbl2 ON tbl1.id = tbl2.id AND tbl1.nome = 'Nina'
+INNER JOIN ObjetivoProfissional AS tbl3 ON  tbl2.id = tbl3.id
+
+
+CREATE TABLE `InformacoesPessoais` ( 
+  `id` smallint(4) NOT NULL auto_increment,
+  `nome` varchar(50) collate latin1_general_ci NOT NULL,
+  `endereco` varchar(50) collate latin1_general_ci NOT NULL,
+  `bairro` varchar(32) collate latin1_general_ci NOT NULL,
+  `cidade` varchar(32) collate latin1_general_ci NOT NULL,
+  `email` varchar(50) collate latin1_general_ci NOT NULL,
+  `estado` varchar(2) collate latin1_general_ci NOT NULL,
+  `sexo` varchar(12) collate latin1_general_ci NOT NULL,  
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1;
+
+CREATE TABLE `Descricao` (	
+  `id` smallint(4) NOT NULL auto_increment,
+  `descricao` text(250) collate latin1_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1;
+
+CREATE TABLE `ObjetivoProfissional` (	
+  `id` smallint(4) NOT NULL auto_increment,
+  `escolaridade` varchar(32) collate latin1_general_ci NOT NULL,
+  `areaAtuacao` varchar(32) collate latin1_general_ci NOT NULL,
+  `pretensaoSalarial` varchar(32) collate latin1_general_ci NOT NULL,
+  `cargoDesejavel` varchar(32) collate latin1_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1;
+
+INSERT INTO InformacoesPessoais ( nome, endereco, bairro, cidade, email, estado, sexo  )
+VALUES ( 'Allan', 'Rua Olívia de Castro 280B', 'Clélia Bernardes',
+	 'Viçosa', 'allanguerreiro@yahoo.com.br', 'MG', 'Masculino');
+
+INSERT INTO Descricao ( descricao )
+VALUES ( 'Bacharel em Ciência da Computação BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO, no Centro Universitário do Estado do Pará (CESUPA). Estudante de Mestrado em CIÊNCIA DA COMPUTAÇÃO da Universidade Federal de Viçosa.');
+
+INSERT INTO ObjetivoProfissional ( escolaridade, areaAtuacao, pretensaoSalarial, cargoDesejavel )
+VALUES ( 'Superior Completo', 'Ciências Físicas', '5000,00', 'Analista');
+
+-- /////////////////////////////////////////////////////////////////////////
+
+INSERT INTO InformacoesPessoais ( nome, endereco, bairro, cidade, email, estado, sexo  )
+VALUES ( 'Nina', 'Rua Olívia de Castro 280B', 'Clélia Bernardes',
+	 'Viçosa', 'allanguerreiro@yahoo.com.br', 'MG', 'Masculino');
+
+INSERT INTO Descricao ( descricao )
+VALUES ( 'Bacharel em Ciência da Computação BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO, no Centro Universitário do Estado do Pará (CESUPA). Estudante de Mestrado em CIÊNCIA DA COMPUTAÇÃO da Universidade Federal de Viçosa.');
+
+INSERT INTO ObjetivoProfissional ( escolaridade, areaAtuacao, pretensaoSalarial, cargoDesejavel )
+VALUES ( 'Superior Completo', 'Ciências Físicas', '5000,00', 'Analista');
